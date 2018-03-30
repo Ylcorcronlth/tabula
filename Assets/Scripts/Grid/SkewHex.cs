@@ -8,6 +8,24 @@ public struct SkewHex {
     private const float _CY = 0.5f;
 
     // # Fields
+    private static SkewHex[] _Neighbors = {
+        new SkewHex(1, 0),
+        new SkewHex(1, 1),
+        new SkewHex(0, 1),
+        new SkewHex(-1, 0),
+        new SkewHex(-1, -1),
+        new SkewHex(0, -1)
+    };
+
+    private static SkewCorner[] _Corners = {
+        new SkewCorner(0, -1, SkewCorner.Direction.L),
+        new SkewCorner(0, 0, SkewCorner.Direction.R),
+        new SkewCorner(0, 0, SkewCorner.Direction.L),
+        new SkewCorner(-1, 0, SkewCorner.Direction.R),
+        new SkewCorner(-1, -1, SkewCorner.Direction.L),
+        new SkewCorner(-1, -1, SkewCorner.Direction.R),
+    };
+
     private int _u, _v;
 
     // # Constructors
@@ -28,6 +46,23 @@ public struct SkewHex {
     public Vector2 position {
         get {
             return new Vector2(_CX*(_u - _v), _CY*(_u + _v));
+        }
+    }
+
+    public IEnumerable<SkewHex> neighbors {
+        get {
+            for (int i = 0; i < 6; i++) {
+                yield return this + _Neighbors[i];
+            }
+        }
+    }
+
+    public IEnumerable<SkewCorner> corners {
+        get {
+            for (int i = 0; i < 6; i++) {
+                SkewCorner offset = _Corners[i];
+                yield return new SkewCorner(this + offset.hex, offset.direction);
+            }
         }
     }
 
