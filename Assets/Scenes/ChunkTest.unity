@@ -291,6 +291,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LandColor: {r: 1, g: 1, b: 1, a: 0}
   WaterColor: {r: 0.061310556, g: 0.1449529, b: 0.30882353, a: 0}
+  SScale: 0.05
+  WScale: 0.01
+  Steepness: 4
+  NoiseAmount: 1
+  ChunkRadius: 3
   ChunkPrefab: {fileID: 114155406179607470, guid: 0844984b60031bd47bfb43373f746045,
     type: 2}
 --- !u!4 &1473963688
