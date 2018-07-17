@@ -26,6 +26,8 @@ public struct SkewHex {
         new SkewCorner(-1, -1, SkewCorner.Direction.R),
     };
 
+    // The two coordinates in the skew-hex system.
+    // u corresponds to the NE direction, while v corresponds with the NW.
     private int _u, _v;
 
     // # Constructors

@@ -10,6 +10,8 @@ public struct CubeHex {
 
     // # Fields
     // The three coordinates of the hex. q + r + s == 0.
+    // The basis vectors are oriented 120 degrees from each other, with
+    // the first oriented along the x-axis.
     private int _q, _r, _s;
 
     // # Constructors
@@ -19,7 +21,7 @@ public struct CubeHex {
         _s = -q - r;
     }
 
-    public CubeHex (int q, int r, int s) {
+    public CubeHex(int q, int r, int s) {
         _q = q;
         _r = r;
         _s = s;
