@@ -93,6 +93,14 @@ public struct CubeHex {
         return a._q != b._q || a._r != b._r;
     }
 
+    public static implicit operator SkewHex(CubeHex a) {
+        return new SkewHex(a._q + a._r, a._r);
+    }
+
+    public static implicit operator FractionalCube(CubeHex a) {
+        return new FractionalCube(a._q, a._r, a._s);
+    }
+
     public override bool Equals(object obj) {
         if (obj == null || GetType() != obj.GetType()) {
             return false;
